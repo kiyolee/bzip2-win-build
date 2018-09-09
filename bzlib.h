@@ -65,8 +65,7 @@ typedef
    } 
    bz_stream;
 
-
-#ifndef BZ_IMPORT
+#if !defined(BZ_IMPORT) && !defined(LIBBZ2_IMPORT)
 #define BZ_EXPORT
 #endif
 
@@ -83,11 +82,20 @@ typedef
 #   endif
 #   ifdef BZ_EXPORT
 #   define BZ_API(func) WINAPI func
+#   ifdef LIBBZ2_EXPORT
+#   define BZ_EXTERN extern __declspec(dllexport)
+#   else
 #   define BZ_EXTERN extern
+#   endif
+#   else
+#   ifdef LIBBZ2_IMPORT
+#   define BZ_API(func) WINAPI func
+#   define BZ_EXTERN extern __declspec(dllimport)
 #   else
    /* import windows dll dynamically */
 #   define BZ_API(func) (WINAPI * func)
 #   define BZ_EXTERN
+#   endif
 #   endif
 #else
 #   define BZ_API(func) func

@@ -18,7 +18,11 @@
 
 #ifdef _WIN32
 
-#define BZ2_LIBNAME "libbz2-1.0.2.DLL" 
+#ifdef _MSC_VER
+#define fileno _fileno
+#endif
+
+#define BZ2_LIBNAME "libbz2.dll" 
 
 #include <windows.h>
 static int BZ2DLLLoaded = 0;
@@ -58,6 +62,7 @@ int BZ2DLLFreeLibrary(void)
    if(BZ2DLLLoaded==0){return 0;}
    FreeLibrary(BZ2DLLhLib);
    BZ2DLLLoaded=0;
+   return 1;
 }
 #endif /* WIN32 */
 

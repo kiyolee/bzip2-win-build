@@ -143,6 +143,12 @@
 #   define APPEND_FILESPEC(root, name)                \
       root = snocString ((root), (name))
 
+#ifdef _MSC_VER
+#   define setmode  _setmode
+#   define fileno   _fileno
+#   define isatty   _isatty
+#endif
+
 #   define SET_BINARY_MODE(fd)                        \
       do {                                            \
          int retVal = setmode ( fileno ( fd ),        \
