@@ -113,6 +113,9 @@
   <ItemGroup>
     <ClCompile Include="..\..\bzip2recover.c" />
   </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\..\win32\bzip2recover.rc" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

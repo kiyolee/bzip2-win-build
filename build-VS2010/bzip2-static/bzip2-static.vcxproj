@@ -120,6 +120,9 @@
   <ItemGroup>
     <ClInclude Include="..\..\bzlib.h" />
   </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\..\win32\bzip2.rc" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
