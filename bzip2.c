@@ -225,7 +225,7 @@ static void    cleanUpAndFail        ( Int32 )       NORETURN;
 static void    compressedStreamEOF   ( void )        NORETURN;
 
 static void    copyFileName ( Char*, Char* );
-static void*   myMalloc     ( Int32 );
+static void*   myMalloc     ( size_t );
 static void    applySavedFileAttrToOutputFile ( IntNative fd );
 
 
@@ -1115,8 +1115,8 @@ const Char* unzSuffix[BZ_N_SUFFIX_PAIRS]
 static 
 Bool hasSuffix ( Char* s, const Char* suffix )
 {
-   Int32 ns = strlen(s);
-   Int32 nx = strlen(suffix);
+   size_t ns = strlen(s);
+   size_t nx = strlen(suffix);
    if (ns < nx) return False;
    if (strcmp(s + ns - nx, suffix) == 0) return True;
    return False;
@@ -1707,11 +1707,11 @@ typedef
 
 /*---------------------------------------------*/
 static 
-void *myMalloc ( Int32 n )
+void *myMalloc ( size_t n )
 {
    void* p;
 
-   p = malloc ( (size_t)n );
+   p = malloc ( n );
    if (p == NULL) outOfMemory ();
    return p;
 }

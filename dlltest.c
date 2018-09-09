@@ -37,14 +37,14 @@ int BZ2DLLLoadLibrary(void)
       fprintf(stderr,"Can't load %s\n",BZ2_LIBNAME);
       return -1;
    }
-   BZ2_bzlibVersion=GetProcAddress(hLib,"BZ2_bzlibVersion");
-   BZ2_bzopen=GetProcAddress(hLib,"BZ2_bzopen");
-   BZ2_bzdopen=GetProcAddress(hLib,"BZ2_bzdopen");
-   BZ2_bzread=GetProcAddress(hLib,"BZ2_bzread");
-   BZ2_bzwrite=GetProcAddress(hLib,"BZ2_bzwrite");
-   BZ2_bzflush=GetProcAddress(hLib,"BZ2_bzflush");
-   BZ2_bzclose=GetProcAddress(hLib,"BZ2_bzclose");
-   BZ2_bzerror=GetProcAddress(hLib,"BZ2_bzerror");
+   BZ2_bzlibVersion = (const char* (WINAPI *)(void))GetProcAddress(hLib,"BZ2_bzlibVersion");
+   BZ2_bzopen = (BZFILE* (WINAPI *)(const char*, const char*))GetProcAddress(hLib,"BZ2_bzopen");
+   BZ2_bzdopen = (BZFILE* (WINAPI *)(int, const char*))GetProcAddress(hLib,"BZ2_bzdopen");
+   BZ2_bzread = (int (WINAPI *)(BZFILE*, void*, int))GetProcAddress(hLib,"BZ2_bzread");
+   BZ2_bzwrite = (int (WINAPI *)(BZFILE*, void*, int))GetProcAddress(hLib,"BZ2_bzwrite");
+   BZ2_bzflush = (int (WINAPI *)(BZFILE*))GetProcAddress(hLib,"BZ2_bzflush");
+   BZ2_bzclose = (void (WINAPI *)(BZFILE*))GetProcAddress(hLib,"BZ2_bzclose");
+   BZ2_bzerror = (const char* (WINAPI *)(BZFILE*, int*))GetProcAddress(hLib,"BZ2_bzerror");
 
    if (!BZ2_bzlibVersion || !BZ2_bzopen || !BZ2_bzdopen
        || !BZ2_bzread || !BZ2_bzwrite || !BZ2_bzflush

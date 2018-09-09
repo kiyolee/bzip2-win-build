@@ -260,7 +260,7 @@ static void bsPutUInt32 ( BitStream* bs, UInt32 c )
 /*---------------------------------------------*/
 static Bool endsInBz2 ( Char* name )
 {
-   Int32 n = strlen ( name );
+   size_t n = strlen ( name );
    if (n <= 4) return False;
    return
       (name[n-4] == '.' &&
@@ -465,7 +465,7 @@ Int32 main ( Int32 argc, Char** argv )
          /* Create the output file name, correctly handling leading paths. 
             (31.10.2001 by Sergey E. Kusikov) */
          Char* split;
-         Int32 ofs, k;
+         size_t ofs, k;
          for (k = 0; k < BZ_MAX_FILENAME; k++) 
             outFileName[k] = 0;
          strcpy (outFileName, inFileName);
