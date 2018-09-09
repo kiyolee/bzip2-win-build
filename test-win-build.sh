@@ -1,20 +1,20 @@
 #!/bin/bash
 
-BZIP2=${1:-bzip2}
-
-if [ ! -x "$BZIP2" ]; then
-  echo $BZIP2 does not exist.
-  exit 1
+if [ $# -eq 0 ]; then
+  echo "usage: $0 {file-path-to-bzip2.exe}"
+  exit 255
 fi
+
+BZIP2="$1"
 
 cat words1
 
-$BZIP2 -1  < sample1.ref > sample1.rb2
-$BZIP2 -2  < sample2.ref > sample2.rb2
-$BZIP2 -3  < sample3.ref > sample3.rb2
-$BZIP2 -d  < sample1.bz2 > sample1.tst
-$BZIP2 -d  < sample2.bz2 > sample2.tst
-$BZIP2 -ds < sample3.bz2 > sample3.tst
+"$BZIP2" -1  < sample1.ref > sample1.rb2
+"$BZIP2" -2  < sample2.ref > sample2.rb2
+"$BZIP2" -3  < sample3.ref > sample3.rb2
+"$BZIP2" -d  < sample1.bz2 > sample1.tst
+"$BZIP2" -d  < sample2.bz2 > sample2.tst
+"$BZIP2" -ds < sample3.bz2 > sample3.tst
 
 errcnt=0
 cmp -s sample1.bz2 sample1.rb2
