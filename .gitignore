@@ -1,7 +1,9 @@
 *.VC.db
 *.log
 *.opensdf
+*.rb2
 *.sdf
+*.tst
 *~
 build-*/*/Debug
 build-*/*/Release
