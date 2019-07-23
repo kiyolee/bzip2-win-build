@@ -2,7 +2,7 @@
 
 bzip2 Windows build with Visual Studio.
 
-This version is bzip2-1.0.7.
+This version is bzip2-1.0.8.
 
 See win-build-info for general information about the
 win-build effort.
