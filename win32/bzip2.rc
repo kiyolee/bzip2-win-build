@@ -26,11 +26,11 @@ BEGIN
       VALUE "FileDescription",	"bzip2 for Windows\0"
       VALUE "FileVersion",	BZIP2_VERSION_STR "\0"
       VALUE "InternalName",	"bzip2.exe\0"
-      VALUE "LegalCopyright",	"Copyright (C) 1996-2010 Julian Seward <jseward@bzip.org>\0"
+      VALUE "LegalCopyright",	"Copyright (C) 1996-2019 Julian Seward <jseward@bzip.org>\0"
       VALUE "OriginalFilename",	"bzip2.exe\0"
       VALUE "ProductName",	"bzip2\0"
       VALUE "ProductVersion",	BZIP2_VERSION_STR "\0"
-      VALUE "Comments",		"Alternative build from <https://github.com/kiyolee/bzip2-win-build/>.\0"
+      VALUE "Comments",		"Alternative build from https://github.com/kiyolee/bzip2-win-build/.\0"
     END
   END
   BLOCK "VarFileInfo"
