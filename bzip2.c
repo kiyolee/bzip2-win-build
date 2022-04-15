@@ -1138,8 +1138,8 @@ Bool mapSuffix ( Char* name,
 static 
 void compress ( Char *name )
 {
-   FILE  *inStr;
-   FILE  *outStr;
+   FILE  *inStr = NULL;
+   FILE  *outStr = NULL;
    Int32 n, i;
    struct MY_STAT statBuf;
 
@@ -1319,8 +1319,8 @@ void compress ( Char *name )
 static 
 void uncompress ( Char *name )
 {
-   FILE  *inStr;
-   FILE  *outStr;
+   FILE  *inStr = NULL;
+   FILE  *outStr = NULL;
    Int32 n, i;
    Bool  magicNumberOK;
    Bool  cantGuess;
@@ -1517,7 +1517,7 @@ void uncompress ( Char *name )
 static 
 void testf ( Char *name )
 {
-   FILE *inStr;
+   FILE *inStr = NULL;
    Bool allOK;
    struct MY_STAT statBuf;
 
