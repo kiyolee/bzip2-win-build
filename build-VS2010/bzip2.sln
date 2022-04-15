@@ -11,6 +11,9 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "bzip2", "bzip2\bzip2.vcxpro
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "bzip2recover", "bzip2recover\bzip2recover.vcxproj", "{76EE848F-5542-4FE2-AB39-214A238DC247}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8958775D-2DA7-4928-90BA-CCFCCF0BC4EE} = {8958775D-2DA7-4928-90BA-CCFCCF0BC4EE}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "bzip2-static", "bzip2-static\bzip2-static.vcxproj", "{7F3195EA-FCB8-43E7-B85F-B5A88F3DB32E}"
 	ProjectSection(ProjectDependencies) = postProject
